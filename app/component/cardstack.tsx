@@ -1,13 +1,12 @@
 'use client'; // ← penting di Next.js App Router (biar bisa akses `useEffect`)
 
-import { SiGo, SiReact, SiLaravel, SiTypescript, SiTailwindcss, SiGithub, SiNextdotjs,SiHtml5, SiCss3, SiJavascript, SiThreedotjs} from 'react-icons/si';
+import { SiGo, SiReact, SiLaravel, SiTypescript, SiTailwindcss, SiGithub, SiNextdotjs, SiHtml5, SiCss3, SiJavascript, SiThreedotjs } from 'react-icons/si';
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import AOS from 'aos'
 import 'aos/dist/aos.css'; 
-
-
+import Image from 'next/image';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,13 +16,11 @@ declare global {
   }
 }
 
-
-
 export default function CardStack() {
-  const frontRef = useRef(null);
-  const middleRef = useRef(null);
-  const backRef = useRef(null);
-  const sectionRef = useRef(null);
+  const frontRef = useRef<HTMLDivElement>(null);
+  const middleRef = useRef<HTMLDivElement>(null);
+  const backRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     
@@ -32,8 +29,6 @@ export default function CardStack() {
       once: true,
     });
   }, []);
-
-
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -73,10 +68,8 @@ export default function CardStack() {
     return () => ctx.revert(); 
   }, []);
 
-
-
-    // Load script particles.js dari CDN
-   useEffect(() => {
+  // Load script particles.js dari CDN
+  useEffect(() => {
     // Load script particles.js dari CDN
     const script = document.createElement('script');
     script.src = 'https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js';
@@ -126,7 +119,7 @@ export default function CardStack() {
               enable: true,
               distance: 180,
               color: '#ffffff',
-              opacity: 0.3,
+              opacity: 0.2,
               width: 1,
             },
             move: { enable: true, speed: 2 },
@@ -160,36 +153,38 @@ export default function CardStack() {
     <>
     
      <div className="relative h-screen">
-      {/* Background Particles */}
-      <div
-        id="particles-js"
-        className="absolute top-0 left-0 w-full h-full z-0 "
-        style={{
-          background: 'linear-gradient(to bottom,rgb(0, 0, 0), #1a1a2e)',
-        }}
-      ></div>
+        {/* Background Particles */}
+        <div
+          id="particles-js"
+          className="absolute top-0 left-0 w-full h-full z-0 "
+          style={{
+            background: 'linear-gradient(to bottom,rgb(0, 0, 0), #1a1a2e)',
+          }}
+        ></div>
 
-      {/* Konten utama */}
-      <div className="relative z-10 flex items-center justify-center px-8 h-full pointer-events-none">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center max-w-6xl w-full">
-          <div className="flex justify-center" data-aos="fade-left">
-            <img
-              src="/mahdi2.jpg"
-              alt="Foto Profil"
-              className="w-64 h-64 md:w-80 md:h-80 grayscale hover:grayscale-0 transition duration-1000 rounded-lg hover:rounded-2xl transition-all duration-300 object-cover border-4 border-white shadow-lg pointer-events-auto "
-            />
-          </div>
-          <div data-aos="fade-right">
-            <h1 className="text-2xl sm:text-3xl md:text-5xl font-extrabold text-white mb-4 whitespace-nowrap">
-              Hi, I’m Mahdi Jamaludin 👋
-            </h1>
-            <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
-              Saya adalah Mahasiswa Binus@Malang yang fokus di pengembangan Full-Stack Web dan Mobile App. Saya terbiasa menggunakan React, Next.js, JavaScript, Expo, serta Golang dan Laravel untuk membangun aplikasi yang efisien dan responsif.
-            </p>
+        {/* Konten utama */}
+        <div className="relative z-10 flex items-center justify-center px-8 h-full pointer-events-none">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center max-w-6xl w-full">
+            <div className="flex justify-center" data-aos="fade-left">
+              <Image
+                src="/mahdi2.jpg"
+                alt="Foto Profil"
+                width={320}
+                height={320}
+                className="w-64 h-64 md:w-80 md:h-80 grayscale hover:grayscale-0 transition duration-1000 rounded-lg hover:rounded-2xl transition-all duration-300 object-cover border-4 border-white shadow-lg pointer-events-auto"
+              />
+            </div>
+            <div data-aos="fade-right">
+              <h1 className="text-2xl sm:text-3xl md:text-5xl font-extrabold text-white mb-4 whitespace-nowrap">
+                Hi, I&apos;m Mahdi Jamaludin 👋
+              </h1>
+              <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
+                Saya adalah Mahasiswa Binus@Malang yang fokus di pengembangan Full-Stack Web dan Mobile App. Saya terbiasa menggunakan React, Next.js, JavaScript, Expo, serta Golang dan Laravel untuk membangun aplikasi yang efisien dan responsif.
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
       <section ref={sectionRef} style={{ height: '100vh', position: 'relative', color: 'white', background: 'linear-gradient(to bottom, #1a1a2e,rgb(0, 0, 0))' }}>
         {/* Particles.js Background untuk Card Section */}
@@ -204,9 +199,11 @@ export default function CardStack() {
         <div className="card-stack pointer-events-none" data-aos="fade-up" data-aos-delay="300">
           {/* Card Elements */}
           <div className="card back flex flex-col items-center justify-center" ref={backRef}>
-            <img
+            <Image
               src="/three.png"
               alt="Project Three.js"
+              width={320}
+              height={224}
               className="w-4/5 h-56 object-fit rounded-xl mb-4 shadow-lg"
             />
             <h1 className="mb-3 text-black font-bold font-serif">3D Portfolio with Three.js</h1>
@@ -222,9 +219,11 @@ export default function CardStack() {
           </div>
           
           <div className="card middle flex flex-col items-center justify-center" ref={middleRef}>
-            <img
+            <Image
               src="/anonim.png"
-              alt="Project Front"
+              alt="Project Anonymous Chat"
+              width={320}
+              height={224}
               className="w-4/5 h-56 object-cover rounded-xl mb-4 shadow-lg"
             />
             <h1 className='mb-3 text-white font-bold font-serif'>Anonymous Chat</h1>
@@ -240,9 +239,11 @@ export default function CardStack() {
           </div>
           
           <div className="card front flex flex-col items-center justify-center" ref={frontRef}>
-            <img
+            <Image
               src="/savebite.jpg"
-              alt="Project Front"
+              alt="Project SaveBite"
+              width={320}
+              height={224}
               className="w-4/5 h-56 object-cover rounded-xl mb-4 shadow-lg"
             />
             <h1 className='mb-3 text-white font-bold font-serif'>SaveBite</h1>
@@ -252,106 +253,80 @@ export default function CardStack() {
               <SiLaravel color="#FF2D20" />
             </div>
             <p className="text-white text-base md:text-lg text-center font-serif">
-              SaveBite adalah aplikasi yang membantu mengurangi food waste melalui pencatatan stok makanan, perencanaan menu, dan rekomendasi resep dari AI.<br /> <br />
+              SaveBite adalah aplikasi yang membantu mengurangi food waste melalui pencatatan stok makanan, perencanaan menu, dan rekomendasi resep dari AI.<br /><br />
               Saya bertanggung jawab sebagai project leader dalam pengembangannya.
             </p>
           </div>
         </div>
       </section>
 
-
-    <div className="h-screen bg-gradient-to-b from-black to-[#1a1a2e] text-white flex items-center justify-center px-12 relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-500/20 to-purple-500/20"></div>
-      </div>
+      <div  className="h-screen bg-gradient-to-b from-black to-[#1a1a2e] text-white flex items-center justify-around px-12" style={{ height: '100vh', background: 'linear-gradient(to bottom, #000000, #1a1a2e)' }} > 
       
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 w-full max-w-7xl z-10">
-        {/* Education Section */}
-        <div className="flex flex-col items-center lg:items-start space-y-6" data-aos="fade-right">
-          <div className="text-center lg:text-left">
-            <h2 className="text-4xl lg:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-              Education
-            </h2>
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 shadow-2xl">
-              <img 
-                src="/binus.jpeg" 
-                alt="Binus University" 
-                className="w-32 h-32 mx-auto lg:mx-0 mb-6 rounded-xl object-cover shadow-lg border-2 border-white/30"
-              />
-              <div className="space-y-4" >
-                <h3 className="text-2xl font-bold text-white">Binus University Malang</h3>
-                <p className="text-gray-300 text-lg">Computer Science</p>
-                <div className="flex items-center space-x-2 text-blue-300">
-                  <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
-                  <span className="text-sm">Currently Studying</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      
+        <div className="w-1/2">
+          <Image src="/binus.jpeg" alt="Binus University Logo" width={200} height={100} className='mb-8' />
+          <h2 className="text-3xl font-bold mb-4">Education</h2>
+          <ul className="list-disc list-inside space-y-2">
+            <li>Binus Malang</li>
+          </ul>
+        </div> 
 
-        {/* Skills Section */}
-        <div className="flex flex-col items-center lg:items-start space-y-6" data-aos="fade-left">
-          <div className="text-center lg:text-left">
-            <h2 className="text-4xl lg:text-5xl font-bold mb-6 bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">
-              Skills
-            </h2>
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 shadow-2xl">
-              <div className="grid grid-cols-2 lg:grid-cols-3 gap-8">
-                <div className="flex flex-col items-center space-y-3 group">
-                  <div className="p-4 bg-white/10 rounded-xl group-hover:bg-white/20 transition-all duration-300 group-hover:scale-110">
-                    <SiGo color="#00ADD8" size={50} />
-                  </div>
-                  <span className="text-sm font-medium text-gray-300">Golang</span>
+
+        <div className="w-1/2">
+          <h2 className="text-3xl font-bold mb-4">Skills</h2>
+          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 shadow-2xl">
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="flex flex-col items-center space-y-3 group">
+                <div className="p-4 bg-white/10 rounded-xl group-hover:bg-white/20 transition-all duration-300 group-hover:scale-110">
+                  <SiGo color="#00ADD8" size={50} />
                 </div>
-                
-                <div className="flex flex-col items-center space-y-3 group">
-                  <div className="p-4 bg-white/10 rounded-xl group-hover:bg-white/20 transition-all duration-300 group-hover:scale-110">
-                    <SiReact color="#61DBFB" size={50} />
-                  </div>
-                  <span className="text-sm font-medium text-gray-300">React</span>
+                <span className="text-sm font-medium text-gray-300">Golang</span>
+              </div>
+              
+              <div className="flex flex-col items-center space-y-3 group">
+                <div className="p-4 bg-white/10 rounded-xl group-hover:bg-white/20 transition-all duration-300 group-hover:scale-110">
+                  <SiReact color="#61DBFB" size={50} />
                 </div>
-                
-                <div className="flex flex-col items-center space-y-3 group">
-                  <div className="p-4 bg-white/10 rounded-xl group-hover:bg-white/20 transition-all duration-300 group-hover:scale-110">
-                    <SiLaravel color="#FF2D20" size={50} />
-                  </div>
-                  <span className="text-sm font-medium text-gray-300">Laravel</span>
+                <span className="text-sm font-medium text-gray-300">React</span>
+              </div>
+              
+              <div className="flex flex-col items-center space-y-3 group">
+                <div className="p-4 bg-white/10 rounded-xl group-hover:bg-white/20 transition-all duration-300 group-hover:scale-110">
+                  <SiLaravel color="#FF2D20" size={50} />
                 </div>
-                
-                <div className="flex flex-col items-center space-y-3 group">
-                  <div className="p-4 bg-white/10 rounded-xl group-hover:bg-white/20 transition-all duration-300 group-hover:scale-110">
-                    <SiTypescript color="#3178C6" size={50} />
-                  </div>
-                  <span className="text-sm font-medium text-gray-300">TypeScript</span>
+                <span className="text-sm font-medium text-gray-300">Laravel</span>
+              </div>
+              
+              <div className="flex flex-col items-center space-y-3 group">
+                <div className="p-4 bg-white/10 rounded-xl group-hover:bg-white/20 transition-all duration-300 group-hover:scale-110">
+                  <SiTypescript color="#3178C6" size={50} />
                 </div>
-                
-                <div className="flex flex-col items-center space-y-3 group">
-                  <div className="p-4 bg-white/10 rounded-xl group-hover:bg-white/20 transition-all duration-300 group-hover:scale-110">
-                    <SiTailwindcss color="#06B6D4" size={50} />
-                  </div>
-                  <span className="text-sm font-medium text-gray-300">Tailwind</span>
+                <span className="text-sm font-medium text-gray-300">TypeScript</span>
+              </div>
+              
+              <div className="flex flex-col items-center space-y-3 group">
+                <div className="p-4 bg-white/10 rounded-xl group-hover:bg-white/20 transition-all duration-300 group-hover:scale-110">
+                  <SiTailwindcss color="#06B6D4" size={50} />
                 </div>
-                
-                <div className="flex flex-col items-center space-y-3 group">
-                  <div className="p-4 bg-white/10 rounded-xl group-hover:bg-white/20 transition-all duration-300 group-hover:scale-110">
-                    <SiGithub color="#181717" size={50} />
-                  </div>
-                  <span className="text-sm font-medium text-gray-300">GitHub</span>
+                <span className="text-sm font-medium text-gray-300">Tailwind</span>
+              </div>
+              
+              <div className="flex flex-col items-center space-y-3 group">
+                <div className="p-4 bg-white/10 rounded-xl group-hover:bg-white/20 transition-all duration-300 group-hover:scale-110">
+                  <SiGithub color="#181717" size={50} />
                 </div>
-                <div className="flex flex-col items-center space-y-3 group">
-                  <div className="p-4 bg-white/10 rounded-xl group-hover:bg-white/20 transition-all duration-300 group-hover:scale-110">
-                    <SiNextdotjs className="text-white hover:text-gray-300 transition-colors duration-300" title="Next.js" size={50} />
-                  </div>
-                  <span className="text-sm font-medium text-gray-300">Next.js</span>
+                <span className="text-sm font-medium text-gray-300">GitHub</span>
+              </div>
+              <div className="flex flex-col items-center space-y-3 group">
+                <div className="p-4 bg-white/10 rounded-xl group-hover:bg-white/20 transition-all duration-300 group-hover:scale-110">
+                  <SiNextdotjs className="text-white hover:text-gray-300 transition-colors duration-300" title="Next.js" size={50} />
                 </div>
+                <span className="text-sm font-medium text-gray-300">Next.js</span>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
       <style jsx>{`
         .card-stack {

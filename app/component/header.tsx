@@ -1,10 +1,12 @@
 'use client';
-import React, { useEffect } from 'react';
+
 import { SiReact, SiNextdotjs, SiGo, SiLaravel, SiTypescript, SiTailwindcss, SiGithub } from 'react-icons/si';
+import { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import Image from 'next/image';
 
-const Header = () => {
+export default function Header() {
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -13,64 +15,95 @@ const Header = () => {
   }, []);
 
   return (
-    <header className="relative min-h-screen flex items-center px-6  overflow-hidden">
-      {/* Background Blur Layer */}
-      <div
-        className="absolute inset-0 bg-center bg-cover blur-sm brightness-75 overflow-hidden" data-aos = "zoom-in-up"
-        style={{
-          backgroundImage: "url('/bg.jpeg')", 
-        }}
-      ></div>
+    <div className="relative h-screen">
+      {/* Background Image dengan Blur */}
+      <div className="absolute inset-0">
+        <Image
+          src="/bg.jpeg"
+          alt="Background"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black/80"></div>
+      </div>
 
-      {/* Overlay Content */}
-      <div className="relative grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-6xl mx-auto z-10">
-        {/* Kiri: Nama dan Skill */}
-        <div className="flex flex-col justify-center" data-aos="fade-right">
-          <h1 className="text-4xl md:text-6xl font-bold text-white drop-shadow-md">
+      {/* Content */}
+      <div className="relative z-10 flex items-center justify-center h-full px-8">
+        <div className="text-center text-white max-w-4xl">
+          {/* Profile Image */}
+          <div className="mb-8" data-aos="fade-down" data-aos-delay="200">
+            <Image
+              src="/mahdi.png"
+              alt="Mahdi Jamaludin - Full Stack Developer"
+              width={200}
+              height={200}
+              className="w-32 h-32 md:w-40 md:h-40 mx-auto rounded-full border-4 border-white/30 shadow-2xl hover:scale-105 transition-transform duration-300"
+            />
+          </div>
+
+          {/* Name & Title */}
+          <h1 className="text-4xl md:text-6xl font-bold mb-4" data-aos="fade-up" data-aos-delay="300">
             Mahdi Jamaludin
           </h1>
-          <p className="mt-4 text-xl md:text-2xl text-gray-200 drop-shadow-md mb-6">
+          <p className="text-xl md:text-2xl text-gray-300 mb-8" data-aos="fade-up" data-aos-delay="400">
             Full Stack Developer
           </p>
-          
+
           {/* Skills Icons */}
-          <div className="flex flex-wrap gap-4 items-center">
-            <div className="group" data-aos="fade-up" data-aos-delay="0">
-              <SiReact size={40} className="text-blue-400 hover:text-blue-300 transition-colors duration-300" title="React" />
-            </div>
-            <div className="group" data-aos="fade-up" data-aos-delay="100">
-              <SiNextdotjs size={40} className="text-white hover:text-gray-300 transition-colors duration-300" title="Next.js" />
-            </div>
-            <div className="group" data-aos="fade-up" data-aos-delay="200">
-              <SiGo size={40} className="text-blue-500 hover:text-blue-400 transition-colors duration-300" title="Golang" />
-            </div>
-            <div className="group" data-aos="fade-up" data-aos-delay="300">
-              <SiLaravel size={40} className="text-red-500 hover:text-red-400 transition-colors duration-300" title="Laravel" />
-            </div>
-            <div className="group" data-aos="fade-up" data-aos-delay="400">
-              <SiTypescript size={40} className="text-blue-600 hover:text-blue-500 transition-colors duration-300" title="TypeScript" />
-            </div>
-            <div className="group" data-aos="fade-up" data-aos-delay="500">
-              <SiTailwindcss size={40} className="text-cyan-400 hover:text-cyan-300 transition-colors duration-300" title="Tailwind CSS" />
-            </div>
+          <div className="flex flex-wrap justify-center gap-6 mb-8" data-aos="fade-up" data-aos-delay="500">
             <div className="group" data-aos="fade-up" data-aos-delay="600">
-              <SiGithub size={40} className="text-white hover:text-gray-300 transition-colors duration-300" title="GitHub" />
+              <SiReact 
+                className="text-6xl text-blue-400 hover:text-blue-300 transition-colors duration-300 hover:scale-110" 
+                title="React"
+              />
+            </div>
+            <div className="group" data-aos="fade-up" data-aos-delay="700">
+              <SiNextdotjs 
+                className="text-6xl text-white hover:text-gray-300 transition-colors duration-300 hover:scale-110" 
+                title="Next.js"
+              />
+            </div>
+            <div className="group" data-aos="fade-up" data-aos-delay="800">
+              <SiGo 
+                className="text-6xl text-blue-500 hover:text-blue-400 transition-colors duration-300 hover:scale-110" 
+                title="Golang"
+              />
+            </div>
+            <div className="group" data-aos="fade-up" data-aos-delay="900">
+              <SiLaravel 
+                className="text-6xl text-red-500 hover:text-red-400 transition-colors duration-300 hover:scale-110" 
+                title="Laravel"
+              />
+            </div>
+            <div className="group" data-aos="fade-up" data-aos-delay="1000">
+              <SiTypescript 
+                className="text-6xl text-blue-600 hover:text-blue-500 transition-colors duration-300 hover:scale-110" 
+                title="TypeScript"
+              />
+            </div>
+            <div className="group" data-aos="fade-up" data-aos-delay="1100">
+              <SiTailwindcss 
+                className="text-6xl text-cyan-400 hover:text-cyan-300 transition-colors duration-300 hover:scale-110" 
+                title="Tailwind CSS"
+              />
+            </div>
+            <div className="group" data-aos="fade-up" data-aos-delay="1200">
+              <SiGithub 
+                className="text-6xl text-gray-300 hover:text-white transition-colors duration-300 hover:scale-110" 
+                title="GitHub"
+              />
             </div>
           </div>
-        </div>
 
-        {/* Kanan: Foto */}
-        <div className="flex justify-center items-center" data-aos="fade-left">
-          <img
-            src="/mahdi.png"
-            alt="Mahdi Jamaludin - Full Stack Developer"
-            className="w-48 h-48 md:w-64 md:h-64 object-cover rounded-full border-4 border-white shadow-xl"
-            data-aos="zoom-in"
-          />
+          {/* Description */}
+          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed" data-aos="fade-up" data-aos-delay="1300">
+            Passionate developer yang fokus pada pengembangan web dan mobile app. 
+            Menggunakan teknologi modern untuk menciptakan solusi yang inovatif dan user-friendly.
+          </p>
         </div>
       </div>
-    </header>
+    </div>
   );
-};
-
-export default Header;
+}
