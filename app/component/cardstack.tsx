@@ -260,68 +260,149 @@ export default function CardStack() {
         </div>
       </section>
 
-      <div  className="h-screen bg-gradient-to-b from-black to-[#1a1a2e] text-white flex items-center justify-around px-12" style={{ height: '100vh', background: 'linear-gradient(to bottom, #000000, #1a1a2e)' }} > 
-      
-      
-        <div className="w-1/2">
-          <Image src="/binus.jpeg" alt="Binus University Logo" width={200} height={100} className='mb-8' />
-          <h2 className="text-3xl font-bold mb-4">Education</h2>
-          <ul className="list-disc list-inside space-y-2">
-            <li>Binus Malang</li>
-          </ul>
-        </div> 
+      <div className="min-h-screen bg-gradient-to-b from-black to-[#1a1a2e] text-white py-16 px-4 md:px-12" style={{ background: 'linear-gradient(to bottom, #000000, #1a1a2e)' }} > 
+        
+        {/* Container untuk layout yang lebih baik */}
+        <div className="max-w-7xl mx-auto">
+          {/* Layout: Mobile stacked, Desktop side-by-side */}
+          <div className="flex flex-col lg:flex-row lg:items-start lg:justify-center lg:space-x-12">
+            
+            {/* Education Section */}
+            <div className="w-full lg:w-5/12 mb-12 lg:mb-0 flex flex-col items-center" data-aos="fade-up" data-aos-delay="200">
+              <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-6 md:p-8 border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105 w-full max-w-lg">
+                <div className="text-center mb-6">
+                  <Image 
+                    src="/binus.jpeg" 
+                    alt="Binus University Logo" 
+                    width={100} 
+                    height={50} 
+                    className='mx-auto mb-4 rounded-xl shadow-lg'
+                  />
+                  <h2 className="text-3xl md:text-4xl font-bold mb-2 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                    Education
+                  </h2>
+                  <div className="w-16 md:w-20 h-1 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto rounded-full"></div>
+                </div>
+                
+                <div className="space-y-4 md:space-y-6">
+                  <div className="bg-white/5 rounded-2xl p-4 md:p-6 border border-white/10 hover:bg-white/10 transition-all duration-300">
+                    <div className="flex items-center space-x-3 mb-3">
+                      <div className="w-2 md:w-3 h-2 md:h-3 bg-green-400 rounded-full animate-pulse"></div>
+                      <span className="text-green-400 font-semibold text-xs md:text-sm">Currently Studying</span>
+                    </div>
+                    <h3 className="text-xl md:text-2xl font-bold text-white mb-2">Binus University Malang</h3>
+                    <p className="text-gray-300 text-base md:text-lg mb-3">Computer Science</p>
+                    <div className="flex items-center space-x-2 text-blue-300">
+                      <span className="text-xs md:text-sm">🎓 Undergraduate Program</span>
+                    </div>
+                    <div className="mt-3 md:mt-4 pt-3 md:pt-4 border-t border-white/10">
+                      <p className="text-gray-400 text-xs md:text-sm">
+                        Fokus pada pengembangan software, algoritma, dan teknologi web modern
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-white/5 rounded-2xl p-4 md:p-6 border border-white/10 hover:bg-white/10 transition-all duration-300">
+                    <div className="flex items-center space-x-3 mb-3">
+                      <div className="w-2 md:w-3 h-2 md:h-3 bg-blue-400 rounded-full"></div>
+                      <span className="text-blue-400 font-semibold text-xs md:text-sm">Additional Learning</span>
+                    </div>
+                    <h3 className="text-lg md:text-xl font-bold text-white mb-2">Online Courses & Bootcamps</h3>
+                    <p className="text-gray-300 text-xs md:text-sm">
+                      React, Next.js, Golang, Laravel, dan berbagai teknologi modern lainnya
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-
-        <div className="w-1/2">
-          <h2 className="text-3xl font-bold mb-4">Skills</h2>
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 shadow-2xl">
-            <div className="grid grid-cols-2 lg:grid-cols-3 gap-8">
-              <div className="flex flex-col items-center space-y-3 group">
-                <div className="p-4 bg-white/10 rounded-xl group-hover:bg-white/20 transition-all duration-300 group-hover:scale-110">
-                  <SiGo color="#00ADD8" size={50} />
+            {/* Skills Section */}
+            <div className="w-full lg:w-5/12 flex flex-col items-center" data-aos="fade-up" data-aos-delay="400">
+              <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-6 md:p-8 border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105 w-full max-w-lg">
+                <div className="text-center mb-6 md:mb-8">
+                  <h2 className="text-3xl md:text-4xl font-bold mb-2 bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">
+                    Skills & Expertise
+                  </h2>
+                  <div className="w-16 md:w-20 h-1 bg-gradient-to-r from-green-400 to-blue-400 mx-auto rounded-full"></div>
+                  <p className="text-gray-300 mt-3 text-sm md:text-base">Technologies I work with daily</p>
                 </div>
-                <span className="text-sm font-medium text-gray-300">Golang</span>
-              </div>
-              
-              <div className="flex flex-col items-center space-y-3 group">
-                <div className="p-4 bg-white/10 rounded-xl group-hover:bg-white/20 transition-all duration-300 group-hover:scale-110">
-                  <SiReact color="#61DBFB" size={50} />
+                
+                <div className="grid grid-cols-2 gap-4 md:gap-6">
+                  {/* Programming Languages */}
+                  <div className="flex flex-col items-center space-y-2 md:space-y-3 group">
+                    <div className="p-3 md:p-4 bg-white/10 rounded-2xl group-hover:bg-white/20 transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl">
+                      <SiGo color="#00ADD8" size={40} />
+                    </div>
+                    <span className="text-xs md:text-sm font-medium text-gray-300 group-hover:text-white transition-colors duration-300 text-center">Golang</span>
+                    <div className="w-12 md:w-16 h-1 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+                  </div>
+                  
+                  <div className="flex flex-col items-center space-y-2 md:space-y-3 group">
+                    <div className="p-3 md:p-4 bg-white/10 rounded-2xl group-hover:bg-white/20 transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl">
+                      <SiReact color="#61DBFB" size={40} />
+                    </div>
+                    <span className="text-xs md:text-sm font-medium text-gray-300 group-hover:text-white transition-colors duration-300 text-center">React</span>
+                    <div className="w-12 md:w-16 h-1 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+                  </div>
+                  
+                  <div className="flex flex-col items-center space-y-2 md:space-y-3 group">
+                    <div className="p-3 md:p-4 bg-white/10 rounded-2xl group-hover:bg-white/20 transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl">
+                      <SiLaravel color="#FF2D20" size={40} />
+                    </div>
+                    <span className="text-xs md:text-sm font-medium text-gray-300 group-hover:text-white transition-colors duration-300 text-center">Laravel</span>
+                    <div className="w-12 md:w-16 h-1 bg-gradient-to-r from-red-400 to-pink-400 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+                  </div>
+                  
+                  <div className="flex flex-col items-center space-y-2 md:space-y-3 group">
+                    <div className="p-3 md:p-4 bg-white/10 rounded-2xl group-hover:bg-white/20 transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl">
+                      <SiTypescript color="#3178C6" size={40} />
+                    </div>
+                    <span className="text-xs md:text-sm font-medium text-gray-300 group-hover:text-white transition-colors duration-300 text-center">TypeScript</span>
+                    <div className="w-12 md:w-16 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+                  </div>
+                  
+                  <div className="flex flex-col items-center space-y-2 md:space-y-3 group">
+                    <div className="p-3 md:p-4 bg-white/10 rounded-2xl group-hover:bg-white/20 transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl">
+                      <SiTailwindcss color="#06B6D4" size={40} />
+                    </div>
+                    <span className="text-xs md:text-sm font-medium text-gray-300 group-hover:text-white transition-colors duration-300 text-center">Tailwind</span>
+                    <div className="w-12 md:w-16 h-1 bg-gradient-to-r from-cyan-400 to-teal-400 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+                  </div>
+                  
+                  <div className="flex flex-col items-center space-y-2 md:space-y-3 group">
+                    <div className="p-3 md:p-4 bg-white/10 rounded-2xl group-hover:bg-white/20 transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl">
+                      <SiGithub color="#181717" size={40} />
+                    </div>
+                    <span className="text-xs md:text-sm font-medium text-gray-300 group-hover:text-white transition-colors duration-300 text-center">GitHub</span>
+                    <div className="w-12 md:w-16 h-1 bg-gradient-to-r from-gray-400 to-gray-600 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+                  </div>
+                  
+                  <div className="flex flex-col items-center space-y-2 md:space-y-3 group">
+                    <div className="p-3 md:p-4 bg-white/10 rounded-2xl group-hover:bg-white/20 transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl">
+                      <SiNextdotjs className="text-white group-hover:text-gray-300 transition-colors duration-300" title="Next.js" size={40} />
+                    </div>
+                    <span className="text-xs md:text-sm font-medium text-gray-300 group-hover:text-white transition-colors duration-300 text-center">Next.js</span>
+                    <div className="w-12 md:w-16 h-1 bg-gradient-to-r from-white to-gray-300 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+                  </div>
                 </div>
-                <span className="text-sm font-medium text-gray-300">React</span>
-              </div>
-              
-              <div className="flex flex-col items-center space-y-3 group">
-                <div className="p-4 bg-white/10 rounded-xl group-hover:bg-white/20 transition-all duration-300 group-hover:scale-110">
-                  <SiLaravel color="#FF2D20" size={50} />
+                
+                {/* Skills Categories */}
+                <div className="mt-6 md:mt-8 pt-4 md:pt-6 border-t border-white/10">
+                  <div className="grid grid-cols-1 gap-3 md:gap-4 text-center">
+                    <div className="bg-white/5 rounded-xl p-3">
+                      <span className="text-xs text-gray-400">Frontend</span>
+                      <p className="text-xs md:text-sm text-white font-medium">React, Next.js, Tailwind</p>
+                    </div>
+                    <div className="bg-white/5 rounded-xl p-3">
+                      <span className="text-xs text-gray-400">Backend</span>
+                      <p className="text-xs md:text-sm text-white font-medium">Golang, Laravel, Node.js</p>
+                    </div>
+                    <div className="bg-white/5 rounded-xl p-3">
+                      <span className="text-xs text-gray-400">Tools</span>
+                      <p className="text-xs md:text-sm text-white font-medium">Git, Docker, VS Code</p>
+                    </div>
+                  </div>
                 </div>
-                <span className="text-sm font-medium text-gray-300">Laravel</span>
-              </div>
-              
-              <div className="flex flex-col items-center space-y-3 group">
-                <div className="p-4 bg-white/10 rounded-xl group-hover:bg-white/20 transition-all duration-300 group-hover:scale-110">
-                  <SiTypescript color="#3178C6" size={50} />
-                </div>
-                <span className="text-sm font-medium text-gray-300">TypeScript</span>
-              </div>
-              
-              <div className="flex flex-col items-center space-y-3 group">
-                <div className="p-4 bg-white/10 rounded-xl group-hover:bg-white/20 transition-all duration-300 group-hover:scale-110">
-                  <SiTailwindcss color="#06B6D4" size={50} />
-                </div>
-                <span className="text-sm font-medium text-gray-300">Tailwind</span>
-              </div>
-              
-              <div className="flex flex-col items-center space-y-3 group">
-                <div className="p-4 bg-white/10 rounded-xl group-hover:bg-white/20 transition-all duration-300 group-hover:scale-110">
-                  <SiGithub color="#181717" size={50} />
-                </div>
-                <span className="text-sm font-medium text-gray-300">GitHub</span>
-              </div>
-              <div className="flex flex-col items-center space-y-3 group">
-                <div className="p-4 bg-white/10 rounded-xl group-hover:bg-white/20 transition-all duration-300 group-hover:scale-110">
-                  <SiNextdotjs className="text-white hover:text-gray-300 transition-colors duration-300" title="Next.js" size={50} />
-                </div>
-                <span className="text-sm font-medium text-gray-300">Next.js</span>
               </div>
             </div>
           </div>
