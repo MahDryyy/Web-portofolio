@@ -81,7 +81,7 @@ export default function Footer() {
               </a>
               
               <a 
-                href="https://www.instagram.com/mahdi.jamaludin/" 
+                href="https://www.instagram.com/mahhbroo?igsh=aXN0bm16bWV2Mmxk&utm_source=qr" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="group"
@@ -100,7 +100,7 @@ export default function Footer() {
         {/* Bottom Section */}
         <div className="mt-12 pt-8 border-t border-white/20 text-center">
           <p className="text-gray-400">
-            © 2024 Mahdi Jamaludin. Made with ❤️ using Next.js & Tailwind CSS
+            © 2025 Mahdi Jamaludin. Made using Next.js & Tailwind CSS
           </p>
         </div>
       </div>
