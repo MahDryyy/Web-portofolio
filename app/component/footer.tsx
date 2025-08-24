@@ -33,10 +33,15 @@ export default function Footer() {
                   mahdi.jamaludin@binus.ac.id
                 </a>
               </div>
-              <div className="flex items-center space-x-3 group">
+              <a
+                href="https://wa.me/6281343222376"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center space-x-3 group hover:underline"
+              >
                 <SiWhatsapp className="text-2xl text-green-400 group-hover:scale-110 transition-transform duration-300" />
-                <span className="text-gray-300">+62 812-3456-7890</span>
-              </div>
+                <span className="text-gray-300">+62 813-4322-2376</span>
+              </a>
               <div className="flex items-center space-x-3">
                 <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
                   <span className="text-white text-xs font-bold">📍</span>
