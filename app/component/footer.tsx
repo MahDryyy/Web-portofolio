@@ -70,7 +70,6 @@ export default function Footer() {
                   </p>
                 </div>
               </a>
-              
               <a 
                 href="https://www.linkedin.com/in/mahdi-jamaludin-755239380/" 
                 target="_blank" 

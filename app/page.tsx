@@ -26,6 +26,7 @@ export default function Home() {
       >
         <span className="mr-1">&gt;_</span> Terminal
       </button>
+
       
       <Header />
       <CardStack/>

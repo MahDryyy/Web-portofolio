@@ -1,6 +1,6 @@
 'use client'; // ← penting di Next.js App Router (biar bisa akses `useEffect`)
 
-import { SiGo, SiReact, SiLaravel, SiTypescript, SiTailwindcss, SiGithub, SiNextdotjs, SiHtml5, SiCss3, SiJavascript, SiThreedotjs } from 'react-icons/si';
+import { SiGo, SiReact, SiLaravel, SiTypescript, SiTailwindcss, SiGithub, SiNextdotjs, SiHtml5, SiCss3, SiJavascript, SiThreedotjs, SiPython } from 'react-icons/si';
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -376,6 +376,13 @@ export default function CardStack() {
                     <span className="text-xs md:text-sm font-medium text-gray-300 group-hover:text-white transition-colors duration-300 text-center">GitHub</span>
                     <div className="w-12 md:w-16 h-1 bg-gradient-to-r from-gray-400 to-gray-600 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
                   </div>
+                                    <div className="flex flex-col items-center space-y-2 md:space-y-3 group">
+                    <div className="p-3 md:p-4 bg-white/10 rounded-2xl group-hover:bg-white/20 transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl">
+                      <SiPython color="#0046eaff" size={40} />
+                    </div>
+                    <span className="text-xs md:text-sm font-medium text-gray-300 group-hover:text-white transition-colors duration-300 text-center">GitHub</span>
+                    <div className="w-12 md:w-16 h-1 bg-gradient-to-r from-gray-400 to-gray-600 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+                  </div>
                   
                   <div className="flex flex-col items-center space-y-2 md:space-y-3 group">
                     <div className="p-3 md:p-4 bg-white/10 rounded-2xl group-hover:bg-white/20 transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl">
@@ -395,7 +402,7 @@ export default function CardStack() {
                     </div>
                     <div className="bg-white/5 rounded-xl p-3">
                       <span className="text-xs text-gray-400">Backend</span>
-                      <p className="text-xs md:text-sm text-white font-medium">Golang, Laravel, Node.js</p>
+                      <p className="text-xs md:text-sm text-white font-medium">Golang, Laravel, Node.js, Python</p>
                     </div>
                     <div className="bg-white/5 rounded-xl p-3">
                       <span className="text-xs text-gray-400">Tools</span>
