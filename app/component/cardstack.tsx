@@ -309,7 +309,7 @@ export default function CardStack() {
                     </div>
                     <h3 className="text-lg md:text-xl font-bold text-white mb-2">Online Courses & Bootcamps</h3>
                     <p className="text-gray-300 text-xs md:text-sm">
-                      React, Next.js, Golang, Laravel, dan berbagai teknologi modern lainnya
+                      Beelingua, Great Learning, dan berbagai platform online lainnya
                     </p>
                   </div>
                 </div>
@@ -376,11 +376,11 @@ export default function CardStack() {
                     <span className="text-xs md:text-sm font-medium text-gray-300 group-hover:text-white transition-colors duration-300 text-center">GitHub</span>
                     <div className="w-12 md:w-16 h-1 bg-gradient-to-r from-gray-400 to-gray-600 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
                   </div>
-                                    <div className="flex flex-col items-center space-y-2 md:space-y-3 group">
+                    <div className="flex flex-col items-center space-y-2 md:space-y-3 group">
                     <div className="p-3 md:p-4 bg-white/10 rounded-2xl group-hover:bg-white/20 transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl">
-                      <SiPython color="#0046eaff" size={40} />
+                      <SiPython color="#3776AB" size={40} />
                     </div>
-                    <span className="text-xs md:text-sm font-medium text-gray-300 group-hover:text-white transition-colors duration-300 text-center">GitHub</span>
+                    <span className="text-xs md:text-sm font-medium text-gray-300 group-hover:text-white transition-colors duration-300 text-center">Python</span>
                     <div className="w-12 md:w-16 h-1 bg-gradient-to-r from-gray-400 to-gray-600 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
                   </div>
                   

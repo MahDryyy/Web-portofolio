@@ -10,7 +10,7 @@ import Orb from './Orb';
 import '@fontsource/press-start-2p';
 
 export default function Header() {
-  useEffect(() => {
+  useEffect(() => { 
     AOS.init({
       duration: 1000,
       once: true,
